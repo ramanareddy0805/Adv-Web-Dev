@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+</head>
+<body style="text-align:center;background-color: #7992a2;">
+    <script>
+        function myFunction() {
+            var x, y,sum, sub, div,mul;
+            x = parseFloat(document.getElementById('a').value);
+            y = parseFloat(document.getElementById('b').value);
+            sum = x + y;
+            sub = x - y;
+            div = x / y;
+            mul = x * y;
+            document.getElementById('sum').value = sum;
+            document.getElementById('sub').value = sub;
+            document.getElementById('div').value = div;
+            document.getElementById('mul').value = mul;
+            
+        }
+        </script>
+    <form style="text-align:center; background-color: #7992a2;border:1px solid #7992a2; padding: 10px; display: inline-block;
+    border-radius: 5px;
+box-shadow: 3px 2px 8px 0 #000;text-decoration: none;">
+    <b> value of a </b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type ="number" name="Value of a" id='a' required><br>
+    <br>
+    <b> value of b : </b> &nbsp;
+    <input type="number" name="Value of b"  id='b' required><br><br>
+    <br>
+    <button type="button" style="background-color: #23b83c;
+    border: 1px solid #020353;
+    color: whitesmoke;
+    padding: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-block;
+                border-radius: 5px;
+    box-shadow: 3px 3px 5px 0 #000;" onclick="myFunction()">Submit</button><br><br>
+    Add: &nbsp; <input type="number" id="add">
+    sub: &nbsp; <input type="number" id="sub">
+    Div: &nbsp; <input type="number" id="div">
+    Mul: &nbsp; <input type="number" id="mul">
+    
+    </form>
+    
+</body>
+</html>

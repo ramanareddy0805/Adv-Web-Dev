@@ -1,0 +1,36 @@
+<html> <script src = "/socket.io/socket.io.js"></script>
+<script> var user;
+var socket = io();
+function createUser() {
+    var age = document.getElementById("age").value;
+    if(age>18){
+        socket.emit('createUser', document.getElementById('name').value + "_" + document.getElementById("age").value + ":");
+    }
+    else{
+        document.getElementById("error-container").innerHTML="Age is less than 18";
+
+    }
+ };
+socket.on('userExists', function(data) {
+document.getElementById('error-container').innerHTML = data; });
+socket.on('setUser', function(data) {
+user = data.username;
+document.body.innerHTML = '<textarea id = "message" rows=10 cols=100></textarea>\
+<button onclick = "sendMessage()">Send</button>\
+<div id = "message-container"></div>'; });
+function sendMessage() {
+var msg = document.getElementById('message').value;
+if(msg) {
+socket.emit('msg', {message: msg, user: user}); }}
+socket.on('newmsg', function(data) {
+if(user) {
+document.getElementById('message-container').innerHTML += '<div><b>' +
+data.user + '</b>: ' + data.message + '</div>'
+} })
+</script> <body style = "background-color: antiquewhite; color: rgb(254, 69, 69); text-align: center;"> 
+   Name: <input id = "name" type = "text">
+   Age: <input id = "age" type="number">
+
+    <button onclick = "createUser()">Create user</button>
+    <div id = "error-container" style="color:red;font-size: larger;"></div>
+</body></html>

@@ -1,0 +1,11 @@
+4 modules are:
+1.npm install fs(file system)
+2.path
+3.io
+4.http
+5.express
+
+to fix vulnerabilities use --npm audit fix
+npm install --save body-parser
+npm install cookie-parser //to install the cookie.
+npm install --save cookie-session
